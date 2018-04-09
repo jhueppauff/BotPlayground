@@ -19,5 +19,22 @@ server.post('/api/messages', connector.listen());
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("You said: %s", session.message.text);
+
+    // Validate user input
+    switch(session.message.text)
+    {
+        case "hi":
+            session.send("Hello Master!");
+            break;
+        case "Hi":
+            session.send("Hello Master!");
+            break;
+        case "selfdestruction":
+            session.send("Nope, I wont kill myself!");
+            break;
+        default:
+            session.send("Unknown command.");
+            break;
+    }
+    
 });
