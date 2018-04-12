@@ -1,3 +1,2 @@
-# BotInADay
-Contains the content and Demos from the MS Bot in a Day event in Munich (13.04.2018)
-
+# Bot Playground
+Playground and Bot Examples for the Microsoft Bot Framework https://dev.botframework.com/
