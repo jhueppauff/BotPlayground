@@ -20,9 +20,8 @@ namespace FAQBot.Dialogs
             var activity = await result as Activity;
 
             // return our reply to the user
-            DialogBuilder dialogBuilder = new DialogBuilder(context);
+            LuisDialog dialogBuilder = new LuisDialog();
 
-            await context.PostAsync(dialogBuilder.MessageRoute(activity.Text));
 
             context.Wait(MessageReceivedAsync);
         }
