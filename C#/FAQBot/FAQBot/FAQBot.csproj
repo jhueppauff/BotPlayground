@@ -130,7 +130,6 @@
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\DialogBuilder.cs" />
     <Compile Include="Dialogs\LuisDialog.cs" />
-    <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
