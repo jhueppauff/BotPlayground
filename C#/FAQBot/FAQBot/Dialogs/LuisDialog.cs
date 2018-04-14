@@ -59,5 +59,28 @@
 
             context.Wait(this.MessageReceived);
         }
+
+        [LuisIntent("Question")]
+        public async Task AskQuestion(IDialogContext context, LuisResult result)
+        {
+            RestClient restClient = new RestClient();
+            string jsonResult = restClient.GetKB(result.Query);
+
+            KBResult kBResult = new KBResult();
+
+            try
+            {
+                kBResult = Newtonsoft.Json.JsonConvert.DeserializeObject<KBResult>(jsonResult);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Unable to deserialize response string");
+            }
+
+            await context.PostAsync(kBResult.Answer);
+
+            context.Wait(this.MessageReceived);
+        }
     }
 }
