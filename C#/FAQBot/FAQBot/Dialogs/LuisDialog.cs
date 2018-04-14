@@ -24,7 +24,9 @@
         {
             string message = $"Hi. How may I help you today?";
 
-            await PostMessageAsync(context, message);
+            await context.PostAsync(message);
+
+            context.Wait(this.MessageReceived);
         }
 
         [LuisIntent("")]
@@ -33,27 +35,26 @@
         {
             string message = $"Sorry, I did not understand you.";
 
-            await PostMessageAsync(context, message);
+            await context.PostAsync(message);
+
+            context.Wait(this.MessageReceived);
         }
 
         [LuisIntent("CurrentDate")]
         public async Task CurrentDate(IDialogContext context, LuisResult result)
         {
-            string message = $"Today we have the {DateTime.Now.Date}";
+            string message = $"Today we have the {DateTime.Today.Date.ToString("dd.MM.yyyy")}";
 
-            await PostMessageAsync(context, message);
+            await context.PostAsync(message);
+
+            context.Wait(this.MessageReceived);
         }
 
         [LuisIntent("CurrentTime")]
         public async Task CurrentTime(IDialogContext context, LuisResult result)
         {
-            string message = $"The current Time is {DateTime.UtcNow}";
+            string message = $"The current time is {DateTime.UtcNow.ToString("hh:mm:ss")} UTC";
 
-            await PostMessageAsync(context, message);
-        }
-
-        private async Task PostMessageAsync(IDialogContext context, string message)
-        {
             await context.PostAsync(message);
 
             context.Wait(this.MessageReceived);
