@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAQBot", "FAQBot\FAQBot.csproj", "{2DB6F53A-CE29-44A2-8C51-FC2622450558}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{98CFFAE9-7C7C-48BB-9AFF-C13245DD1D47}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\TestBot.json = SolutionItems\TestBot.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

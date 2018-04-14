@@ -1,0 +1,100 @@
+{
+  "luis_schema_version": "2.2.0",
+  "versionId": "0.1",
+  "name": "TestBot",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "CurrentDate"
+    },
+    {
+      "name": "CurrentTime"
+    },
+    {
+      "name": "Greetings"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [],
+  "composites": [],
+  "closedLists": [],
+  "regex_entities": [],
+  "bing_entities": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "can you tell me the current date",
+      "intent": "CurrentDate",
+      "entities": []
+    },
+    {
+      "text": "good day",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "good evening",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "good morning",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "hi",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "how much time do we have",
+      "intent": "CurrentTime",
+      "entities": []
+    },
+    {
+      "text": "welcome",
+      "intent": "Greetings",
+      "entities": []
+    },
+    {
+      "text": "what date we have today",
+      "intent": "CurrentDate",
+      "entities": []
+    },
+    {
+      "text": "what day we have",
+      "intent": "CurrentDate",
+      "entities": []
+    },
+    {
+      "text": "what is the current time",
+      "intent": "CurrentTime",
+      "entities": []
+    },
+    {
+      "text": "what time do we have now",
+      "intent": "CurrentTime",
+      "entities": []
+    },
+    {
+      "text": "what time is it",
+      "intent": "CurrentTime",
+      "entities": []
+    },
+    {
+      "text": "what time is it now",
+      "intent": "CurrentTime",
+      "entities": []
+    }
+  ]
+}
