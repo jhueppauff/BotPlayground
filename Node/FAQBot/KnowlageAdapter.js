@@ -1,5 +1,5 @@
-import http from "https";
-import request from "request";
+var http = require("https");
+var request = require("request");
 
 this.GetQnAAnswer = function(message, knowledgeBasesId, subscriptionKey, hostname) {
   var options = { method: 'POST',

@@ -1,10 +1,7 @@
 {
-    "Configuration" :
-    {
         "LuisApiHostName" : "westeurope.api.cognitive.microsoft.com",
         "LuisApiKey" : "f25820e1f6cd4d31b5db063a094d9039",
         "QnAApiHostName" : "westus.api.cognitive.microsoft.com",
         "QnAKnowledgebaseId" : "67d81724-b457-47d9-87a0-e70af0bf4edd",
         "QnASubscriptionKey" : "885f24281a0546b1b41d469b1b15d12b"
-    }
 }

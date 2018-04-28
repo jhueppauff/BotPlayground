@@ -1,4 +1,4 @@
-
+var configuration = require("./config.json");
 var restify = require('restify');
 var builder = require('botbuilder');
 
@@ -23,6 +23,9 @@ var bot = new builder.UniversalBot(connector, function (session) {
     // Validate user input
     switch(session.message.text)
     {
+        case "debug":
+            session.send(configuration.LuisApiHostName);
+            break;
         case "hi":
             session.send("Hello Master!");
             break;
