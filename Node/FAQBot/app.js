@@ -1,6 +1,7 @@
 var configuration = require("./config.json");
 var restify = require('restify');
 var builder = require('botbuilder');
+var KnowlageAdapter = require('./KnowlageAdapter.js');
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -17,27 +18,43 @@ var connector = new builder.ChatConnector({
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
+var inMemoryStorage = new builder.MemoryBotStorage();
+
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
+    session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+}).set('storage', inMemoryStorage);
 
-    // Validate user input
-    switch(session.message.text)
-    {
-        case "debug":
-            session.send(configuration.LuisApiHostName);
-            break;
-        case "hi":
-            session.send("Hello Master!");
-            break;
-        case "Hi":
-            session.send("Hello Master!");
-            break;
-        case "selfdestruction":
-            session.send("Nope, I wont kill myself!");
-            break;
-        default:
-            session.send("Unknown command.");
-            break;
+    var recognizer = new builder.LuisRecognizer(configuration.LuisUrl);
+    bot.recognizer(recognizer);
+
+    bot.dialog("Greetings", function(session, args) {
+        session.send("Hi. How may I help you today?");
+    }).triggerAction({ matches: "Greetings"});
+
+    bot.dialog("CurrentTime", function(session, args) {
+        session.send("It is " + getDateTime());
+    }).triggerAction({
+        matches: 'CurrentTime'
+    });
+
+    bot.dialog("Question", function(session, args) {
+        KnowlageAdapter.GetQnAAnswer(session.message.text, configuration.QnAKnowledgebaseId, configuration.QnASubscriptionKey, configuration.QnAApiHostName).then(
+            function (answer){
+                session.send(answer)
+            }
+        );
+        
+    }).triggerAction({
+        matches: 'Question'
+    });
+      
+    function getDateTime() {
+        var date = new Date();
+        var hour = date.getHours();
+        hour = (hour < 10 ? "0" : "") + hour;
+        var min  = date.getMinutes();
+        min = (min < 10 ? "0" : "") + min;
+
+        return hour + ":" + min;
     }
-    
-});

@@ -3,5 +3,6 @@
         "LuisApiKey" : "f25820e1f6cd4d31b5db063a094d9039",
         "QnAApiHostName" : "westus.api.cognitive.microsoft.com",
         "QnAKnowledgebaseId" : "67d81724-b457-47d9-87a0-e70af0bf4edd",
-        "QnASubscriptionKey" : "885f24281a0546b1b41d469b1b15d12b"
+        "QnASubscriptionKey" : "885f24281a0546b1b41d469b1b15d12b",
+        "LuisUrl" : "https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/c1c464ab-c0c6-47ee-9dd6-e61e72245653?subscription-key=f25820e1f6cd4d31b5db063a094d9039&verbose=true&timezoneOffset=0&q="
 }
